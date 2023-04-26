@@ -8,8 +8,10 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f,5f)] float speed = 1.0f; //通过增加range属性，把速度限制在一定的范围
 
+    
+    
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         FindPath();
         ReturnToStart();
@@ -53,7 +55,7 @@ public class EnemyMover : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
 
 
