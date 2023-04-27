@@ -8,7 +8,7 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f,5f)] float speed = 1.0f; //通过增加range属性，把速度限制在一定的范围
 
-    
+    Enemy enemy;
     
     // Start is called before the first frame update
     void OnEnable()
@@ -18,6 +18,10 @@ public class EnemyMover : MonoBehaviour
         StartCoroutine(FollowPath()); // 调用携程要用的固定格式
     }
 
+    void Start()
+    {
+        enemy = GetComponent<Enemy>();
+    }
 
     void FindPath()
     {
@@ -55,6 +59,7 @@ public class EnemyMover : MonoBehaviour
             }
         }
 
+        enemy.StealGold();
         gameObject.SetActive(false);
 
 
