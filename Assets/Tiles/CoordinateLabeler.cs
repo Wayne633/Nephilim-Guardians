@@ -6,6 +6,8 @@ using System;
 
 // 该脚本可以让对象的坐标显示在任何位置实时改变
 [ExecuteAlways]
+[RequireComponent(typeof(TextMeshPro))]
+
 public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.white;
@@ -39,7 +41,7 @@ public class CoordinateLabeler : MonoBehaviour
             UpdateObjectName(); 
         }
 
-        ColorCoordinates();
+        SetLabelColor();
         ToggleLabels();
     }
 
@@ -53,7 +55,7 @@ public class CoordinateLabeler : MonoBehaviour
 
 
 
-    void ColorCoordinates()
+    void SetLabelColor()
     {
         if(waypoint.IsPlaceable)
         {
