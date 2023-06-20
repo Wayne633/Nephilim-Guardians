@@ -55,7 +55,7 @@ public class EnemyMover : MonoBehaviour
         gameObject.SetActive(false);
 
     }
-
+     
 
 
 

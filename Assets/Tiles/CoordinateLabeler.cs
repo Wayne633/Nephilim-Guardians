@@ -38,7 +38,8 @@ public class CoordinateLabeler : MonoBehaviour
         if (!Application.isPlaying)
         {
             DisplayCoordinates();
-            UpdateObjectName(); 
+            UpdateObjectName();
+            label.enabled = true;
         }
 
         SetLabelColor();
