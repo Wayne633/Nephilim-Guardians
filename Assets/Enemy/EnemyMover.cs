@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour
 {
 
-    [SerializeField] List<Waypoint> path = new List<Waypoint>();
+    [SerializeField] List<Tile> path = new List<Tile>();
     [SerializeField] [Range(0f,5f)] float speed = 1.0f; //通过增加range属性，把速度限制在一定的范围
 
     Enemy enemy;
@@ -33,7 +33,7 @@ public class EnemyMover : MonoBehaviour
 
         foreach (Transform child in parent.transform)
         {
-            Waypoint waypoint = child.GetComponent<Waypoint>();
+            Tile waypoint = child.GetComponent<Tile>();
 
             if(waypoint != null )
             {
@@ -62,7 +62,7 @@ public class EnemyMover : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        foreach (Waypoint waypoint in path)
+        foreach (Tile waypoint in path)
         {
             Vector3 startPosition = transform.position;
             Vector3 endPositon = waypoint.transform.position;
