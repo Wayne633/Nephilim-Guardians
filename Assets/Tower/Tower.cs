@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Tower : MonoBehaviour
 {
     [SerializeField] int cost = 75;
+    [SerializeField] float buildDelay = 1.0f;
+
+    void Start()
+    {
+        StartCoroutine(Build());
+    }
 
 
     public bool CreateTower(Tower tower, Vector3 position)
@@ -28,6 +35,26 @@ public class Tower : MonoBehaviour
 
     }
 
+    IEnumerator Build()
+    {
+        foreach(Transform child in transform) 
+        {
+            child.gameObject.SetActive(false);
+            foreach(Transform grandchild in child)
+            {
+                grandchild.gameObject.SetActive(false);
+            }
+        }
 
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+            yield return new WaitForSeconds(buildDelay);
+            foreach (Transform grandchild in child)
+            {
+                grandchild.gameObject.SetActive(true);
+            }
+        }
+    }
 
 }
