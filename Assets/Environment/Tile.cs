@@ -52,16 +52,6 @@ public class Tile : MonoBehaviour
 
     }
 
-    //等价于下面的写法：
-    /*
-    void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(transform.name);
-        }
-    }
-    */
 
 
 }
